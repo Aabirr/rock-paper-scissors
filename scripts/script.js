@@ -34,30 +34,60 @@ function playRound(playerSelection, computerSelection) {
     } else if (result == "You won") {
         return `You won ${playerSelection} beats ${computerSelection}`;
     } else {
-        return `You lose ${playerSelection} beats ${computerSelection}`;
+        return `You lose ${computerSelection} beats ${playerSelection}`;
     }
 }
 
-// const playerSelection = prompt("Choose between Rock, Paper and Scissors ");
-// const lwr = playerSelection.toLowerCase();
-// const computerSelection = getComputerChoice();
-
-// console.log(playRound(playerSelection, computerSelection));
-
-
+function getPlayerChoice () {
+    let validateInput = false;
+    while(validateInput == false){
+        const choice = prompt("Choose between Rock, Paper and Scissors ");
+        if(choice == null) {
+            continue;
+        } 
+        
+        const choiceInLwr = choice.toLowerCase();
+        if(option.includes(choiceInLwr)){
+            validateInput = true;
+            return choiceInLwr;
+        } 
+            
+        
+    }
+}
 
 function game(){
-    const playerScore = 0;
-    console.log(playerScore);
-    const computerScore = 0;
-    console.log(playerScore);
+    let playerScore = 0;
+    let computerScore = 0;
+    
+     
 
     for(let i = 0; i < 5; i++ ){
-        const playerSelection = prompt("Choose between Rock, Paper and Scissors ");
-        const lwr = playerSelection.toLowerCase();
+        
+        const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
+
+        if(Winner(playerSelection, computerSelection) == "You won") {
+            playerScore++;
+        } else if (Winner(playerSelection, computerSelection) == "Computer Won") {
+            computerScore++;
+        }
+        console.log("-------------------------");
+        console.log("Player: " + playerScore);
+        console.log("Computer: " + computerScore);
+
+        
     }
+
+    if (playerScore > computerScore){
+        console.log("Player Win");
+    } else if (computerScore > playerScore) {
+        console.log("Computer Win");
+    } else {
+        console.log("Game is Draw");
+    }
+    console.log("Game Over!");
 }
 game();
 
