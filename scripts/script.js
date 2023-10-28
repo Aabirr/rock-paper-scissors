@@ -56,38 +56,5 @@ function getPlayerChoice () {
     }
 }
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    
-     
 
-    for(let i = 0; i < 5; i++ ){
-        
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-
-        if(Winner(playerSelection, computerSelection) == "You won") {
-            playerScore++;
-        } else if (Winner(playerSelection, computerSelection) == "Computer Won") {
-            computerScore++;
-        }
-        console.log("-------------------------");
-        console.log("Player: " + playerScore);
-        console.log("Computer: " + computerScore);
-
-        
-    }
-
-    if (playerScore > computerScore){
-        console.log("Player Win");
-    } else if (computerScore > playerScore) {
-        console.log("Computer Win");
-    } else {
-        console.log("Game is Draw");
-    }
-    console.log("Game Over!");
-}
-game();
 
