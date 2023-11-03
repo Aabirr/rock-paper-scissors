@@ -7,6 +7,7 @@ function getComputerChoice () {
     return selection;
     
 }
+
 // Winner check
 function Winner(playerSelection, computerSelection) {
     
@@ -24,19 +25,37 @@ function Winner(playerSelection, computerSelection) {
     } 
 }
 
-
+//Scores
+let playerScore = 0;
+let computerScore = 0;
  
+
+
 function playRound(playerSelection, computerSelection) {
     const result = Winner(playerSelection, computerSelection);
 
     if (result == "Tie") {
-        return "its a Tie";
+        const gameResult = document.querySelector(".result");
+        const text = document.createElement("li");
+        text.textContent = "Its a Tie";
+        gameResult.appendChild(text);
+        
     } else if (result == "You won") {
-        return `You won ${playerSelection} beats ${computerSelection}`;
+        const gameResult = document.querySelector(".result");
+        const text = document.createElement("li");
+        text.textContent = `You won ${playerSelection} beats ${computerSelection}`;
+        gameResult.appendChild(text);
+        
     } else {
-        return `You lose ${computerSelection} beats ${playerSelection}`;
+        const gameResult = document.querySelector(".result");
+        const text = document.createElement("li");
+        text.textContent = `You lose ${computerSelection} beats ${playerSelection}`;
+        gameResult.appendChild(text);
+        
     }
 }
+
+
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>{
@@ -44,10 +63,11 @@ buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         let playerSelection = button.textContent.toLocaleLowerCase();
         let computerSelection = getComputerChoice();
-        console.log(playerSelection);
-        console.log(computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        console.log("Computer Play: " + playerSelection);
+        console.log("Your Play: " + computerSelection);
+        playRound(playerSelection, computerSelection);
+
+        
     });
     
 });
-    
