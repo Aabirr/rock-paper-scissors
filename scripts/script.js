@@ -46,13 +46,36 @@ function playRound(playerSelection, computerSelection) {
         text.textContent = `You won ${playerSelection} beats ${computerSelection}`;
         gameResult.appendChild(text);
         
+
+        const userScore = document.querySelector(".userScore");
+        const scoreCard = document.createElement("p");
+        scoreCard.textContent = playerScore++;
+        userScore.appendChild(scoreCard);
+        
     } else {
         const gameResult = document.querySelector(".result");
         const text = document.createElement("li");
         text.textContent = `You lose ${computerSelection} beats ${playerSelection}`;
         gameResult.appendChild(text);
+
+        
+        //computerScore++;
+        const compScore = document.querySelector(".compScore");
+        const score = document.createElement("p");
+        score.textContent = computerScore++;
+        compScore.appendChild(score);
+
         
     }
+
+    if (playerScore == computerScore) {
+        console.log("Its a draw");
+    } else if (playerScore == 5) {
+        console.log("Player Won this round");
+    } else if ( computerScore == 5) {
+        console.log("Computer Won this round");
+    }
+    
 }
 
 
