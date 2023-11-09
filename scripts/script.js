@@ -67,7 +67,7 @@ function playRound(playerSelection, computerSelection) {
 
         
     }
-
+// game
     if (playerScore == computerScore) {
         console.log("Its a draw");
     } else if (playerScore == 5) {
@@ -79,7 +79,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-
+//Game starter
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>{
     
