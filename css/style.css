@@ -1,4 +1,8 @@
 
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 
 .title{
     font-weight: 900;
@@ -31,7 +35,7 @@ button:hover{
 }
 
 .winner > p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
     color: azure;
     font-size: 30px;
     text-align: center;
@@ -39,12 +43,15 @@ button:hover{
 } 
 
 .scores > div {
+    color: white;
     margin: 10px;
     padding: 20px;
     border-radius: 20px;
+    font-weight: bold;
 }
 
 .pScore {
+    color: white;
     background-color: rgb(119, 7, 224);
     width: 200;
 }
@@ -52,4 +59,10 @@ button:hover{
 .cScore {
     background-color: rgb(224, 130, 7);
     width: 200;
+}
+
+/*End game button*/
+
+.reset {
+    visibility: hidden;
 }

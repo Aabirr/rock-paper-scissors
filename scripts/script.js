@@ -2,7 +2,7 @@
 let playerScore = 0;
 let computerScore = 0;
 let scoreResult = "";
-
+const reset = document.querySelector(".reset");
 
 //Computers Selection
 function getComputerChoice () {
@@ -60,20 +60,48 @@ function playRound(playerSelection, computerSelection) {
 
         
     }
-// game Winner
-    if (playerScore == computerScore) {
-        console.log("Its a draw");
-    } else if (playerScore == 5) {
-        console.log("Player Won this round");
-    } else if ( computerScore == 5) {
-        console.log("Computer Won this round");
-    }
+    scoreChecker(playerScore, computerScore);
     
 }
 
 
+
+
+
+//game winner
+
+const scoreChecker = function(playerScore, computerScore,) {
+
+    
+    if ((playerScore == 5) && (computerScore == 5)) {
+        window.prompt("Its a draw");
+        reset.style.visibility = 'visible';
+    } else if (playerScore == 5) {
+        window.prompt(`YOU WIN ${playerScore}:${computerScore}!`);
+        reset.style.visibility = 'visible';
+    } else if ( computerScore == 5) {
+        window.prompt("Computer Won this round");
+        reset.style.visibility = 'visible';
+    }
+    gameReset();
+    
+    
+}
+
+//End Game
+
+// const gameReset = function(){
+    
+//     if (scoreChecker((playerScore == 5) ||
+//     (computerScore == 5)
+//      || (playerScore == computerScore))) {
+
+//         reset.style.visibility = 'visible';
+//      }
+// }
+
 //Game starter
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".gameButton > button");
 buttons.forEach((button) =>{
     
     button.addEventListener('click', () => {
@@ -84,4 +112,4 @@ buttons.forEach((button) =>{
         
     });
     
-});
+}) 
