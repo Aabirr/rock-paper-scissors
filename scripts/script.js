@@ -2,7 +2,10 @@
 let playerScore = 0;
 let computerScore = 0;
 let scoreResult = "";
-const reset = document.querySelector(".reset");
+const gameReset = document.querySelector(".reset");
+const gameResult = document.querySelector(".result");
+let compScore = document.querySelector(".compScore");
+let pScore = document.querySelector(".playerScore");
 
 //Computers Selection
 function getComputerChoice () {
@@ -38,35 +41,24 @@ function playRound(playerSelection, computerSelection) {
 
 
     if (result == "Tie") {
-        const gameResult = document.querySelector(".result");
+        
         gameResult.textContent = "Its a tie";
         
     } else if (result == "You won") {
 
-        
-        const gameResult = document.querySelector(".result");
         gameResult.textContent = `You won ${playerSelection} beats ${computerSelection}`;
-
-        let pScore = document.querySelector(".playerScore");
         pScore.textContent = playerScore += 1;
         
     } else {
         
         const gameResult = document.querySelector(".result");
         gameResult.textContent = `You lose ${computerSelection} beats ${playerSelection}`;
-
-        let compScore = document.querySelector(".compScore");
         compScore.textContent = computerScore += 1;
-
-        
+   
     }
     scoreChecker(playerScore, computerScore);
     
 }
-
-
-
-
 
 //game winner
 
@@ -75,30 +67,29 @@ const scoreChecker = function(playerScore, computerScore,) {
     
     if ((playerScore == 5) && (computerScore == 5)) {
         window.prompt("Its a draw");
-        reset.style.visibility = 'visible';
+        let anoun = document.create
     } else if (playerScore == 5) {
         window.prompt(`YOU WIN ${playerScore}:${computerScore}!`);
-        reset.style.visibility = 'visible';
+        
     } else if ( computerScore == 5) {
         window.prompt("Computer Won this round");
-        reset.style.visibility = 'visible';
+        
     }
-    gameReset();
-    
-    
+
+    if ((playerScore == 5) ||
+    (computerScore == 5)
+     || ((playerScore == 5) && (computerScore == 5))) {
+
+        gameReset.style.visibility = 'visible';
+
+        const restartGame = document.querySelector(".reset");
+
+        restartGame.addEventListener('click', () => {
+            location.reload();
+        })
+     }
+   
 }
-
-//End Game
-
-// const gameReset = function(){
-    
-//     if (scoreChecker((playerScore == 5) ||
-//     (computerScore == 5)
-//      || (playerScore == computerScore))) {
-
-//         reset.style.visibility = 'visible';
-//      }
-// }
 
 //Game starter
 const buttons = document.querySelectorAll(".gameButton > button");
