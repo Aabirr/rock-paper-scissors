@@ -4,6 +4,7 @@ let computerScore = 0;
 let scoreResult = "";
 const gameReset = document.querySelector(".reset");
 const gameResult = document.querySelector(".result");
+const gameWinner = document.querySelector(".gameWinner");
 let compScore = document.querySelector(".compScore");
 let pScore = document.querySelector(".playerScore");
 
@@ -66,13 +67,14 @@ const scoreChecker = function(playerScore, computerScore,) {
 
     
     if ((playerScore == 5) && (computerScore == 5)) {
-        window.prompt("Its a draw");
-        let anoun = document.create
+        
+        gameWinner.textContent = `DRAW! ${playerScore} : ${computerScore}!`;
     } else if (playerScore == 5) {
-        window.prompt(`YOU WIN ${playerScore}:${computerScore}!`);
+        gameWinner.textContent = `YOU WIN ${playerScore} : ${computerScore}!`;
         
     } else if ( computerScore == 5) {
-        window.prompt("Computer Won this round");
+        gameWinner.textContent = `COMPUTER WIN ${computerScore} : ${playerScore}!`;
+        
         
     }
 
@@ -83,12 +85,22 @@ const scoreChecker = function(playerScore, computerScore,) {
         gameReset.style.visibility = 'visible';
 
         const restartGame = document.querySelector(".reset");
-
+        disableButton();
         restartGame.addEventListener('click', () => {
             location.reload();
         })
+        
      }
    
+}
+
+//Disable playing button
+
+const disableButton = function(){
+    //const buttons = document.querySelectorAll(".gameButton > button");
+        buttons.forEach((button) => {
+            button.disabled = true;
+        })
 }
 
 //Game starter
